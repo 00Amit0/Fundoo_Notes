@@ -1,7 +1,8 @@
 import json
 import logging
 from django.http import JsonResponse
-from User.models import User
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 logging.basicConfig(filename='user_views.log', filemode='a', level=logging.DEBUG)
 
@@ -10,11 +11,11 @@ def registration(request):
     try:
         if request.method == 'POST':
             data = json.loads(request.body)
-            User.objects.create(username=data.get("username"),
-                                password=data.get("password"),
-                                email=data.get("email"),
-                                phone_number=data.get("phone_number"),
-                                location=data.get("location"))
+            User.objects.create_user(username=data.get("username"),
+                                     password=data.get("password"),
+                                     email=data.get("email"),
+                                     phone_number=data.get("phone_number"),
+                                     location=data.get("location"))
             return JsonResponse({"message": "Data save successfully"})
         return JsonResponse("Method not allowed")
     except Exception as e:
@@ -26,7 +27,7 @@ def login(request):
     try:
         if request.method == 'POST':
             data = json.loads(request.body)
-            login_user = User.objects.filter(username=data.get("username"), password=data.get("password").first())
+            login_user = authenticate(username=data.get("username"), password=data.get("password").first())
             if login_user is not None:
                 return JsonResponse({"message": f"User {login_user.username} successfully logged in"})
             else:
