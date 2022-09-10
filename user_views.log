@@ -1,0 +1,297 @@
+WARNING:django.request:Not Found: /registration
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\models.py changed, reloading.
+WARNING:django.request:Not Found: /user/registration
+ERROR:root:null value in column "phone_number" of relation "User_user" violates not-null constraint
+DETAIL:  Failing row contains (1, pbkdf2_sha256$390000$KCHfmY6z4sWNMVWePjsBUT$pvveQj9BS84r+fg156fa..., null, f, Amit, , , f, t, 2022-09-08 07:23:44.442431+00, abc@gmail.com, null, Varanasi).
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "phone_number" of relation "User_user" violates not-null constraint
+DETAIL:  Failing row contains (1, pbkdf2_sha256$390000$KCHfmY6z4sWNMVWePjsBUT$pvveQj9BS84r+fg156fa..., null, f, Amit, , , f, t, 2022-09-08 07:23:44.442431+00, abc@gmail.com, null, Varanasi).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\User\views.py", line 14, in registration
+    User.objects.create_user(username=data.get("username"),
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 161, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 155, in _create_user
+    user.save(using=self._db)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 831, in save
+    self.save_base(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 882, in save_base
+    updated = self._save_table(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1657, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "phone_number" of relation "User_user" violates not-null constraint
+DETAIL:  Failing row contains (1, pbkdf2_sha256$390000$KCHfmY6z4sWNMVWePjsBUT$pvveQj9BS84r+fg156fa..., null, f, Amit, , , f, t, 2022-09-08 07:23:44.442431+00, abc@gmail.com, null, Varanasi).
+
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\models.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\manage.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\models.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\models.py changed, reloading.
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\urls.py changed, reloading.
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\models.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\admin.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\admin.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\Fundoo_Notes\settings.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\urls.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\urls.py changed, reloading.
+ERROR:django.request:Internal Server Error: /user/register
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\utils\deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\middleware\common.py", line 88, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/user/register/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+WARNING:django.request:Method Not Allowed: /user/register/
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+ERROR:root:duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\User\views.py", line 15, in post
+    user_registration = User.objects.create_user(username=data.get("username"),
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 161, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 155, in _create_user
+    user.save(using=self._db)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 831, in save
+    self.save_base(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 882, in save_base
+    updated = self._save_table(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1657, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+
+ERROR:root:duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\User\views.py", line 15, in post
+    user_registration = User.objects.create_user(username=data.get("username"),
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 161, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 155, in _create_user
+    user.save(using=self._db)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 831, in save
+    self.save_base(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 882, in save_base
+    updated = self._save_table(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1657, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+
+ERROR:root:duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\User\views.py", line 15, in post
+    user_registration = User.objects.create_user(username=data.get("username"),
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 161, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 155, in _create_user
+    user.save(using=self._db)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 831, in save
+    self.save_base(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 882, in save_base
+    updated = self._save_table(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1657, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+
+INFO:django.utils.autoreload:C:\Users\amit\Desktop\Fundoo_Notes\User\views.py changed, reloading.
+ERROR:root:duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amit\Desktop\Fundoo_Notes\User\views.py", line 15, in post
+    user_registration = User.objects.create_user(username=data.get("username"),
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 161, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\models.py", line 155, in _create_user
+    user.save(using=self._db)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\contrib\auth\base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 831, in save
+    self.save_base(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 882, in save_base
+    updated = self._save_table(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1657, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\amit\Desktop\Fundoo_Notes\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "User_user_username_key"
+DETAIL:  Key (username)=(Amit) already exists.
+

@@ -1,50 +1,52 @@
 import json
 import logging
-from django.http import JsonResponse
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .models import User
 from django.contrib.auth import authenticate
 
 logging.basicConfig(filename='user_views.log', filemode='a', level=logging.DEBUG)
 
 
-def registration(request):
-    try:
-        if request.method == 'POST':
+class Registration(APIView):
+    def post(self, request):
+        try:
             data = json.loads(request.body)
-            User.objects.create_user(username=data.get("username"),
-                                     password=data.get("password"),
-                                     email=data.get("email"),
-                                     phone_number=data.get("phone_number"),
-                                     location=data.get("location"))
-            return JsonResponse({"message": "Data saved successfully"})
-        return JsonResponse("Method not allowed")
-    except Exception as e:
-        logging.exception(e)
-        return JsonResponse({"message": "Error occurred"})
+            user_registration = User.objects.create_user(username=data.get("username"),
+                                                         password=data.get("password"),
+                                                         email=data.get("email"),
+                                                         phone_number=data.get("phone_number"),
+                                                         location=data.get("location"))
+            user_registration.save()
+            return Response({"message": "Data saved successfully"})
+        except Exception as e:
+            print(e)
+            logging.exception(e)
+            return Response({"message": "Error occurred"})
 
 
-def login(request):
-    try:
-        if request.method == 'POST':
+class Login(APIView):
+    def post(self, request):
+        try:
             data = json.loads(request.body)
-            login_user = authenticate(username=data.get("username"), password=data.get("password").first())
+            login_user = authenticate(username=data.get("username"), password=data.get("password"))
             if login_user is not None:
-                return JsonResponse({"message": f"User {login_user.username} successfully logged in"})
+                return Response({"message": f"User {login_user.username} successfully logged in"})
             else:
-                return JsonResponse({"message": "Invalid Credentials"})
-        return JsonResponse("Method not allowed")
-    except Exception as e:
-        logging.exception(e)
-        return JsonResponse({"message": "Error occurred"})
+                return Response({"message": "Invalid Credentials"})
+        except Exception as e:
+            logging.exception(e)
+            return Response({"message": "Error occurred"})
 
 
-def change_password(request):
-    try:
-        data = json.loads(request.body)
-        user = User.objects.get(username=data.get('username'))
-        user.set_password(data.get('new_password'))
-        user.save()
-        return JsonResponse({'message': 'Successfully change new password'})
-    except Exception as e:
-        print(e)
-        return JsonResponse({})
+class ChangePassword(APIView):
+    def post(self, request):
+        try:
+            data = json.loads(request.body)
+            user = User.objects.get(username=data.get('username'))
+            user.set_password(data.get('new_password'))
+            user.save()
+            return Response({'message': 'Successfully change new password'})
+        except Exception as e:
+            print(e)
+            return Response({})
