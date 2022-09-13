@@ -10,5 +10,5 @@ class User(AbstractUser):
     location = models.CharField(max_length=200)
 
 
-class Meta:
-    db_table = 'user'
+    class Meta:
+        db_table = 'user'
