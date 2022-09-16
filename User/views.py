@@ -1,38 +1,46 @@
 import json
 import logging
-from django.http import JsonResponse
-from django.contrib.auth.models import User
+
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from django.contrib.auth import authenticate
+
+from .serializers import UserSerializer
 
 logging.basicConfig(filename='user_views.log', filemode='a', level=logging.DEBUG)
 
 
-def registration(request):
-    try:
-        if request.method == 'POST':
-            data = json.loads(request.body)
-            User.objects.create_user(username=data.get("username"),
-                                     password=data.get("password"),
-                                     email=data.get("email"),
-                                     phone_number=data.get("phone_number"),
-                                     location=data.get("location"))
-            return JsonResponse({"message": "Data save successfully"})
-        return JsonResponse("Method not allowed")
-    except Exception as e:
-        logging.exception(e)
-        return JsonResponse({"message": "Error occurred"})
+class Registration(APIView):
+    def post(self, request):
+        try:
+            # data = json.loads(request.body)
+            # user_registration = User.objects.create_user(username=data.get("username"),
+            #                                              password=data.get("password"),
+            #                                              email=data.get("email"),
+            #                                              phone_number=data.get("phone_number"),
+            #                                              location=data.get("location"))
+            user_serializer = UserSerializer(data=request.data)
+            user_serializer.is_valid(raise_exception=True)
+            user_serializer.save()
+            return Response({"message": "Data saved successfully",
+                             "data": user_serializer.data}, status.HTTP_201_CREATED
+                            )
+        except Exception as e:
+            print(e)
+            logging.exception(e)
+            return Response({"message": "Error occurred"}, status.HTTP_400_BAD_REQUEST)
 
 
-def login(request):
-    try:
-        if request.method == 'POST':
+class Login(APIView):
+    def post(self, request):
+        try:
             data = json.loads(request.body)
-            login_user = authenticate(username=data.get("username"), password=data.get("password").first())
+            login_user = authenticate(username=data.get("username"), password=data.get("password"))
             if login_user is not None:
-                return JsonResponse({"message": f"User {login_user.username} successfully logged in"})
+                return Response({"message": f"User {login_user.username} successfully logged in"}, status.HTTP_202_ACCEPTED)
             else:
-                return JsonResponse({"message": "Invalid Credentials"})
-        return JsonResponse("Method not allowed")
-    except Exception as e:
-        logging.exception(e)
-        return JsonResponse({"message": "Error occurred"})
+                return Response({"message": "Invalid Credentials"}, status.HTTP_401_UNAUTHORIZED)
+        except Exception as e:
+            logging.exception(e)
+            return Response({"message": "Error occurred"}, status.HTTP_400_BAD_REQUEST)
