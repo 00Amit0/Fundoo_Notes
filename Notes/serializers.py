@@ -3,5 +3,9 @@ from .models import Note
 
 
 class NoteSerializer(serializers.ModelSerializer):
-    models = Note
-    fields = '__all__'
+    class Meta:
+        model = Note
+        fields = ['id', 'title', 'description', 'user']
+
+
+
